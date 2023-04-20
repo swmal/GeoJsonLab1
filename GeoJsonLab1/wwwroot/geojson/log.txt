@@ -1,0 +1,256 @@
+UG-Uganda
+UZ-Uzbekistan
+IE-Ireland
+ER-Eritrea
+-South Georgia & the South Sandwich Islands
+MN-Mongolia
+ES-Spain
+CY-Cyprus
+MO-Macao
+-Jammu-Kashmir
+HM-Heard Island and McDonald Islands
+GF-French Guiana
+CD-Democratic Republic of the Congo
+GW-Guinea-Bissau
+PG-Papua New Guinea
+-Ma'tan al-Sarra
+CH-Switzerland
+-Jersey
+AT-Austria
+PT-Portugal
+LU-Luxembourg
+KZ-Kazakhstan
+AW-Aruba
+VA-Holy See
+GQ-Equatorial Guinea
+JM-Jamaica
+EE-Estonia
+NE-Niger
+BZ-Belize
+MA-Morocco
+-Glorioso Islands
+-Paracel Islands
+-Guernsey
+PW-Palau
+CA-Canada
+ET-Ethiopia
+GL-Greenland
+KM-Comoros
+-Abyei
+GT-Guatemala
+KG-Kyrgyzstan
+SR-Suriname
+PL-Poland
+HU-Hungary
+DJ-Djibouti
+VU-Vanuatu
+KH-Cambodia
+GE-Georgia
+-Guantanamo
+CR-Costa Rica
+ID-Indonesia
+LI-Liechtenstein
+KI-Kiribati
+FJ-Fiji
+MW-Malawi
+-Ilemi Triangle
+-Spratly Islands
+BM-Bermuda
+-Arunachal Pradesh
+SS-South Sudan
+BG-Bulgaria
+GB-U.K. of Great Britain and Northern Ireland
+BH-Bahrain
+NU-Niue
+SO-Somalia
+BB-Barbados
+PR-Puerto Rico
+SC-Seychelles
+SN-Senegal
+GR-Greece
+PS-West Bank
+MT-Malta
+FI-Finland
+TR-Turkey
+LT-Lithuania
+RU-Russian Federation
+ZW-Zimbabwe
+SG-Singapore
+MP-Northern Mariana Islands
+-Kuril Islands
+FR-France
+RS-Serbia
+UY-Uruguay
+GU-Guam
+PA-Panama
+-Netherlands Antilles
+DZ-Algeria
+TG-Togo
+-Hala'ib Triangle
+MM-Myanmar
+MU-Mauritius
+CC-Cocos (Keeling) Islands
+AF-Afghanistan
+ST-Sao Tome and Principe
+CO-Colombia
+CZ-Czech Republic
+JP-Japan
+LA-Lao People's Democratic Republic
+TN-Tunisia
+GY-Guyana
+GA-Gabon
+-Midway Is.
+RE-Reunion
+SA-Saudi Arabia
+TW-Taiwan
+GP-Guadeloupe
+CF-Central African Republic
+PF-French Polynesia
+PT-Azores Islands
+BR-Brazil
+HT-Haiti
+SZ-Swaziland
+NC-New Caledonia
+FK-Falkland Islands (Malvinas)
+PK-Pakistan
+ZA-South Africa
+KP-Democratic People's Republic of Korea
+MV-Maldives
+LB-Lebanon
+TC-Turks and Caicos Islands
+BO-Bolivia
+CU-Cuba
+CN-China
+IQ-Iraq
+MQ-Martinique
+MY-Malaysia
+SE-Sweden
+GH-Ghana
+AO-Angola
+AR-Argentina
+CG-Congo
+BS-Bahamas
+CL-Chile
+GN-Guinea
+IO-British Indian Ocean Territory
+KN-Saint Kitts and Nevis
+SB-Solomon Islands
+PN-Pitcairn Island
+LC-Saint Lucia
+TM-Turkmenistan
+TF-French Southern and Antarctic Territories
+SI-Slovenia
+SV-El Salvador
+CK-Cook Islands
+NG-Nigeria
+NF-Norfolk Island
+-Aksai Chin
+MC-Monaco
+GM-Gambia
+TL-Timor-Leste
+HN-Honduras
+BW-Botswana
+BF-Burkina Faso
+UA-Ukraine
+-Jarvis Island
+ME-Montenegro
+SJ-Svalbard and Jan Mayen Islands
+VN-Vietnam
+HR-Croatia
+-Isle of Man
+IS-Iceland
+NA-Namibia
+MD-Moldova, Republic of
+NR-Nauru
+TH-Thailand
+NP-Nepal
+AS-American Samoa
+EG-Egypt
+DE-Germany
+CI-Côte d'Ivoire
+IN-India
+VE-Venezuela
+BT-Bhutan
+SL-Sierra Leone
+TO-Tonga
+DM-Dominica
+BA-Bosnia & Herzegovina
+JO-Jordan
+QA-Qatar
+TV-Tuvalu
+VC-Saint Vincent and the Grenadines
+PS-Gaza Strip
+YT-Mayotte
+CM-Cameroon
+HK-Hong Kong
+YE-Yemen
+EH-Western Sahara
+TK-Tokelau
+US-United States of America
+GD-Grenada
+KY-Cayman Islands
+DO-Dominican Republic
+AD-Andorra
+AU-Australia
+BV-Bouvet Island
+MK-The former Yugoslav Republic of Macedonia
+PE-Peru
+BJ-Benin
+PY-Paraguay
+MX-Mexico
+RO-Romania
+BY-Belarus
+EC-Ecuador
+SD-Sudan
+TZ-United Republic of Tanzania
+FM-Micronesia (Federated States of)
+OM-Oman
+KR-Republic of Korea
+MS-Montserrat
+LR-Liberia
+RW-Rwanda
+NI-Nicaragua
+MZ-Mozambique
+KW-Kuwait
+BN-Brunei Darussalam
+CV-Cape Verde
+IT-Italy
+IR-Iran (Islamic Republic of)
+AE-United Arab Emirates
+VG-British Virgin Islands
+SM-San Marino
+ZM-Zambia
+LV-Latvia
+MH-Marshall Islands
+SY-Syrian Arab Republic
+LK-Sri Lanka
+NZ-New Zealand
+-Madeira Islands
+KE-Kenya
+CX-Christmas Island
+VI-United States Virgin Islands
+FO-Faroe Islands
+LS-Lesotho
+TJ-Tajikistan
+BI-Burundi
+PH-Philippines
+MG-Madagascar
+AZ-Azerbaijan
+MR-Mauritania
+AG-Antigua & Barbuda
+NO-Norway
+BD-Bangladesh
+DK-Denmark
+BE-Belgium
+WS-Samoa
+AI-Anguilla
+IL-Israel
+LY-Libyan Arab Jamahiriya
+NL-Netherlands
+TD-Chad
+TT-Trinidad and Tobago
+SK-Slovakia
+ML-Mali
+AM-Armenia
+AL-Albania
+GI-Gibraltar
