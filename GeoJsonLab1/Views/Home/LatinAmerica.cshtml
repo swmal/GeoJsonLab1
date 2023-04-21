@@ -1,7 +1,7 @@
 ﻿@model GeoJsonLab1.Models.IndexViewModel
 @{
     ViewData["Title"] = "Home Page";
-    var countriesToShow = new List<string> { "FR", "ES", "BE", "NL", "DE", "AT", "DK", "LU" };
+    var countriesToShow = new List<string> { "PE", "CO", "AR" };
     var countryList = Model.Countries.OrderBy(x => x.Name);
 }
 <style>
@@ -25,7 +25,7 @@
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <div class="text-center">
     <h1 class="display-4">GeoJson/d3</h1>
-    <h4>Single country in central Europe</h4>
+    <h4>Single country in Africa</h4>
 </div>
 <div class="row">
     <div class="col mb-2">
@@ -33,7 +33,7 @@
         <select class="selectpicker" data-live-search="true" id="countriesList">
             @foreach (var country in countryList)
             {
-                if(countriesToShow.Contains(country.Code))
+                if (countriesToShow.Contains(country.Code))
                 {
                     <option value="@country.Code">@country.Name</option>
                 }
@@ -49,9 +49,9 @@
 
 <script>
     var projection = d3.geoMercator()
-    .center([2, 47])                // GPS of location to zoom on
-    .scale(980)                       // This is like the zoom
-    .translate([ 980/2, 600/2 ])
+        .center([2, 47])                // GPS of location to zoom on
+        .scale(980)                       // This is like the zoom
+        .translate([980 / 2, 600 / 2])
 
     const svg = d3.select("svg")
     const myProjection = d3.geoNaturalEarth1()
@@ -60,6 +60,14 @@
 
     function drawMap(err, country) {
         if (err) throw err
+
+        let lon = country.properties.geo_point_2d.lon;
+        let lat = country.properties.geo_point_2d.lat;
+        var projection = d3.geoMercator()
+            .center([lon, lat])                // GPS of location to zoom on
+            .scale(980)                       // This is like the zoom
+            .translate([980 / 2, 600 / 2])
+        let path = d3.geoPath().projection(projection)
 
         svg.selectAll("*").remove();
 
@@ -84,7 +92,7 @@
         d3.json("/GeoJson/" + cc + ".json", drawMap);
     }
 
-    $(document).ready(function(){
+    $(document).ready(function () {
         $('#countriesList').selectpicker();
         $('#countriesList').change(function () {
             renderCountry($(this).val());

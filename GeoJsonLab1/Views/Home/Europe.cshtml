@@ -1,0 +1,101 @@
+﻿@model GeoJsonLab1.Models.IndexViewModel
+@{
+    ViewData["Title"] = "Home Page";
+    var countriesToShow = new List<string> { "FR", "ES", "BE", "NL", "DE", "AT", "DK", "LU", "SE", "NO", "IT", "CH", "GR", "GB", "IE", "IS", "FI", "PL", "CZ", "HU", "RO", "BG" };
+    var countryList = Model.Countries.OrderBy(x => x.Name);
+}
+<style>
+    path {
+        fill: lightgray;
+        stroke: #000;
+    }
+
+    .graticule {
+        fill: none;
+        stroke: #ccc;
+        stroke-width: .5px;
+    }
+
+    .foreground {
+        fill: none;
+        stroke: #333;
+        stroke-width: 1.5px;
+    }
+</style>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<div class="text-center">
+    <h1 class="display-4">GeoJson/d3</h1>
+    <h4>Single country in Europe</h4>
+</div>
+<div class="row">
+    <div class="col mb-2">
+        <label for="countriesList">Select a country</label>
+        <select class="selectpicker" data-live-search="true" id="countriesList">
+            @foreach (var country in countryList)
+            {
+                if(countriesToShow.Contains(country.Code))
+                {
+                    <option value="@country.Code">@country.Name</option>
+                }
+            }
+        </select>
+    </div>
+</div>
+<div class="row">
+    <div class="col p-3">
+        <svg width="960" height="600"></svg>
+    </div>
+</div>
+
+<script>
+    var projection = d3.geoMercator()
+    .center([2, 47])                // GPS of location to zoom on
+    .scale(980)                       // This is like the zoom
+    .translate([ 980/2, 600/2 ])
+
+    const svg = d3.select("svg")
+    const myProjection = d3.geoNaturalEarth1()
+    const path = d3.geoPath().projection(projection)
+    const graticule = d3.geoGraticule()
+
+    function drawMap(err, country) {
+        if (err) throw err
+
+        let lon = country.properties.geo_point_2d.lon;
+        let lat = country.properties.geo_point_2d.lat;
+        var projection = d3.geoMercator()
+            .center([lon, lat])                // GPS of location to zoom on
+            .scale(980)                       // This is like the zoom
+            .translate([980 / 2, 600 / 2])
+        let path = d3.geoPath().projection(projection)
+
+        svg.selectAll("*").remove();
+
+        svg.append("path")
+            .datum(graticule)
+            .attr("class", "graticule")
+            .attr("d", path);
+
+        svg.append("path")
+            .datum(graticule.outline)
+            .attr("class", "foreground")
+            .attr("d", path);
+
+        svg.append("g")
+            .selectAll("path")
+            .data([country])
+            .enter().append("path")
+            .attr("d", path);
+    }
+
+    function renderCountry(cc) {
+        d3.json("/GeoJson/" + cc + ".json", drawMap);
+    }
+
+    $(document).ready(function(){
+        $('#countriesList').selectpicker();
+        $('#countriesList').change(function () {
+            renderCountry($(this).val());
+        });
+    });
+</script>

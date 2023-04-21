@@ -38,7 +38,19 @@ namespace GeoJsonLab1.Controllers
             return View(model);
         }
 
-        public IActionResult SingleCountry()
+        public IActionResult Europe()
+        {
+            var model = GetModel();
+            return View(model);
+        }
+
+        public IActionResult Africa()
+        {
+            var model = GetModel();
+            return View(model);
+        }
+
+        public IActionResult LatinAmerica()
         {
             var model = GetModel();
             return View(model);
