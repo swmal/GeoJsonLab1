@@ -40,19 +40,25 @@ namespace GeoJsonLab1.Controllers
 
         public IActionResult Europe()
         {
-            var model = GetModel();
+            var model = new EuropeViewModel();
             return View(model);
         }
 
         public IActionResult Africa()
         {
-            var model = GetModel();
+            var model = new AfricaViewModel();
             return View(model);
         }
 
         public IActionResult LatinAmerica()
         {
-            var model = GetModel();
+            var model = new LatinAmericaViewModel();
+            return View(model);
+        }
+
+        public IActionResult NorthAmerica()
+        {
+            var model = new NorthAmericaVIewModel();
             return View(model);
         }
 

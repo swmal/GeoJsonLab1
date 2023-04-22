@@ -16,3 +16,20 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+path {
+    fill: lightgray;
+    stroke: #000;
+}
+
+.graticule {
+    fill: none;
+    stroke: #ccc;
+    stroke-width: .5px;
+}
+
+.foreground {
+    fill: none;
+    stroke: #333;
+    stroke-width: 1.5px;
+}
