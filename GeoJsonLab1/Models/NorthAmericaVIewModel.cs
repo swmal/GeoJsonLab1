@@ -9,7 +9,11 @@
                 return new SortedDictionary<string, string> {
                     { "CA", "Canada" },
                     { "US", "United States" },
-                    { "MX", "Mexico" }
+                    { "MX", "Mexico" },
+                    { "NI", "Nicaragua" },
+                    { "HN", "Honduras" },
+                    { "GT", "Guatemala" },
+                    { "PA", "Panama" }
                 };
             }
         }

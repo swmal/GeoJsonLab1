@@ -19,14 +19,19 @@
     </div>
 </div>
 <div class="row">
-    <div class="col p-3">
+    <div class="col-md-4 col-sm-12 bg-light border border-dark rounded shadow p-2">
+        @{
+            await Html.RenderPartialAsync("CountryFactsControl");
+        }
+    </div>
+    <div class="col-md-8 col-sm-12 p-3">
         <svg width="960" height="600"></svg>
     </div>
 </div>
 
 <script>
-    const svg = d3.select("svg")
-    const graticule = d3.geoGraticule()
+    const svg = d3.select("svg");
+    const graticule = d3.geoGraticule();
 
     $(document).ready(function () {
         $('#countriesList').selectpicker();

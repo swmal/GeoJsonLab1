@@ -14,7 +14,9 @@
                     { "VE", "Venezuela" },
                     { "EC", "Ecuador" },
                     { "CL", "Chile" },
-                    { "BO", "Bolivia" }
+                    { "BO", "Bolivia" },
+                    { "UY", "Uruguay" },
+                    { "PY", "Paraguay" }
                 };
             }
         }

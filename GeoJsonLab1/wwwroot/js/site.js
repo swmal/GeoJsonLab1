@@ -1,7 +1,7 @@
 ﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 // for details on configuring this project to bundle and minify static web assets.
 
-function drawMap2(err, country) {
+function drawCountry(err, country) {
     // Create a unit projection.
     let projection3 = d3.geoMercator()
         .scale(1)
@@ -34,7 +34,6 @@ function drawMap2(err, country) {
         .datum(graticule.outline)
         .attr("class", "foreground")
         .attr("d", path);
-
     svg.append("g")
         .selectAll("path")
         .data([country])
@@ -43,5 +42,13 @@ function drawMap2(err, country) {
 }
 
 function renderCountry(cc) {
-    d3.json("/GeoJson/" + cc + ".json", drawMap2);
+    d3.json("/GeoJson/" + cc + ".json", drawCountry);
+    $.getJSON("/miscdata/" + cc + ".json", function (data) {
+        $("#country-name").html(data.name);
+        $("#country-population").html(data.population.toLocaleString('en-US'));
+        $("#country-area").html(data.areaKm2.toFixed().toLocaleString('en-US') + " km2/" + data.areaSqm.toFixed().toLocaleString('en-US') + " sqm");
+        $("#country-population-density").html(data.populationDensity !== undefined ? data.populationDensity.toFixed(1) : "-");
+        $("#country-med-age").html((data.mediumAge !== undefined) ? data.mediumAge.toFixed(1) : "-");
+        $("#country-fertility-rate").html((data.fertilityRage !== undefined && data.fertilityRage > 0) ? data.fertilityRage.toFixed(1) : "-");
+    });
 }

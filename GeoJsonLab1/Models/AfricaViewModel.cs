@@ -20,7 +20,15 @@
                     { "TZ", "Tanzania" },
                     { "KE", "Kenya" },
                     { "SO", "Somalia" },
-                    { "UG", "Uganda" }
+                    { "UG", "Uganda" },
+                    { "MG", "Madagaskar" },
+                    { "ZW", "Zimbabwe" },
+                    { "CM", "Cameroon" },
+                    { "TD", "Chad" },
+                    { "NE", "Niger" },
+                    { "BJ", "Benin" },
+                    { "MZ", "Mozambique" },
+                    { "ZM", "Zambia" }
                 };
             }
         }
