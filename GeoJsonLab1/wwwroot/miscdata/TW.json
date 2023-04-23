@@ -1,1 +1,1 @@
-{"code":"TW","name":"Taiwan","populationDensity":673,"mediumAge":42,"urbanPopulation":79.0,"fertilityRage":1.2,"population":23816775,"areaKm2":35410,"areaSqm":13671.87743576166455837513478}
+{"code":"TW","name":"Taiwan","capital":{"name":"Taipei","lon":121.3,"lat":25.03},"populationDensity":673,"medianAge":42,"urbanPopulation":79.0,"fertilityRate":1.2,"population":23816775,"areaKm2":35410,"areaSqm":13671.87743576166455837513478,"gdpPerCapitaYears":[]}

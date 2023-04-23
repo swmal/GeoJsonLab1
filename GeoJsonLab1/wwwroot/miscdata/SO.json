@@ -1,1 +1,1 @@
-{"code":"SO","name":"Somalia","populationDensity":25,"mediumAge":17,"urbanPopulation":47.0,"fertilityRage":6.1,"population":15893222,"areaKm2":627340,"areaSqm":242217.32817144091059167063126}
+{"code":"SO","name":"Somalia","capital":{"name":"Mogadishu","lon":45.22,"lat":2.04},"populationDensity":25,"medianAge":17,"urbanPopulation":47.0,"fertilityRate":6.1,"population":15893222,"areaKm2":627340,"areaSqm":242217.32817144091059167063126,"gdpPerCapitaYears":[]}

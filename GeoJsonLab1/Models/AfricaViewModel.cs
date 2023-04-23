@@ -28,7 +28,15 @@
                     { "NE", "Niger" },
                     { "BJ", "Benin" },
                     { "MZ", "Mozambique" },
-                    { "ZM", "Zambia" }
+                    { "ZM", "Zambia" },
+                    { "MW", "Malawi" },
+                    { "AO", "Angola" },
+                    { "SN", "Senegal" },
+                    { "GA", "Gabon" },
+                    { "CV", "Cape Verde" },
+                    { "BI", "Burundi" },
+                    { "MR", "Mauritania" },
+                    { "RW", "Rwanda" }
                 };
             }
         }

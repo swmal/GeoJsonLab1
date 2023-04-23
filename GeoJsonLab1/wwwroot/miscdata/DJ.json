@@ -1,1 +1,1 @@
-{"code":"DJ","name":"Djibouti","populationDensity":43,"mediumAge":27,"urbanPopulation":79.0,"fertilityRage":2.8,"population":988000,"areaKm2":23180,"areaSqm":8949.848036174961436405976397}
+{"code":"DJ","name":"Djibouti","capital":{"name":"Djibouti","lon":43.09,"lat":11.35},"populationDensity":43,"medianAge":27,"urbanPopulation":79.0,"fertilityRate":2.8,"population":988000,"areaKm2":23180,"areaSqm":8949.848036174961436405976397,"gdpPerCapitaYears":[{"year":1990,"value":2744.268655}]}

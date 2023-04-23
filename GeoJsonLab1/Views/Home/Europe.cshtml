@@ -9,13 +9,15 @@
 </div>
 <div class="row">
     <div class="col mb-2">
-        <label for="countriesList">Select a country</label>
+        <div class="form-group">
+            <label for="countriesList">Select a country</label>
         <select class="selectpicker" data-live-search="true" id="countriesList">
             @foreach (var cc in Model.CountryCodes.Keys)
             {
                 <option value="@cc">@Model.CountryCodes[cc]</option>
             }
         </select>
+        </div>
     </div>
 </div>
 <div class="row">

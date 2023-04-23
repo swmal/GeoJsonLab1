@@ -45,7 +45,8 @@
                     { "ME", "Montenegro" },
                     { "LI", "Liechtenstein" },
                     { "BY", "Belarus" },
-                    { "RU", "Russia Federation" },
+                    { "RU", "Russian Federation" },
+                    { "CY", "Cyprus" }
                 };
             } 
         }

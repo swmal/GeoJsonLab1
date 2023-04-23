@@ -1,1 +1,1 @@
-{"code":"PF","name":"French Polynesia","populationDensity":77,"mediumAge":34,"urbanPopulation":64.0,"fertilityRage":2.0,"population":280908,"areaKm2":3660,"areaSqm":1413.1339004486781215377857468}
+{"code":"PF","name":"French Polynesia","capital":{"name":"Papeete","lon":-149.34,"lat":-17.32},"populationDensity":77,"medianAge":34,"urbanPopulation":64.0,"fertilityRate":2.0,"population":280908,"areaKm2":3660,"areaSqm":1413.1339004486781215377857468,"gdpPerCapitaYears":[]}

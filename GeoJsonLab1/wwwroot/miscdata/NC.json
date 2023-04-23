@@ -1,1 +1,1 @@
-{"code":"NC","name":"New Caledonia","populationDensity":16,"mediumAge":34,"urbanPopulation":72.0,"fertilityRage":2.0,"population":285498,"areaKm2":18280,"areaSqm":7057.9474590715399075712359158}
+{"code":"NC","name":"New Caledonia","capital":{"name":"Noumea","lon":166.27,"lat":-22.16},"populationDensity":16,"medianAge":34,"urbanPopulation":72.0,"fertilityRate":2.0,"population":285498,"areaKm2":18280,"areaSqm":7057.9474590715399075712359158,"gdpPerCapitaYears":[]}

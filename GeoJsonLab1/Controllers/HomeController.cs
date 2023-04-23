@@ -62,6 +62,13 @@ namespace GeoJsonLab1.Controllers
             return View(model);
         }
 
+        public IActionResult Asia()
+        {
+            var model = new AsiaViewModel();
+            return View(model);
+        }
+
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

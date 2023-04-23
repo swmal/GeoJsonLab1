@@ -1,0 +1,43 @@
+﻿@model GeoJsonLab1.Models.AsiaViewModel
+@{
+    ViewData["Title"] = "Asian countries";
+}
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<div class="text-center">
+    <h1 class="display-4">GeoJson/d3</h1>
+    <h4>Countries in Asia</h4>
+</div>
+<div class="row">
+    <div class="col mb-2">
+        <label for="countriesList">Select a country</label>
+        <select class="selectpicker" data-live-search="true" id="countriesList">
+            @foreach (var cc in Model.CountryCodes.Keys)
+            {
+                <option value="@cc">@Model.CountryCodes[cc]</option>
+            }
+        </select>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4 col-sm-12 bg-light border border-dark rounded shadow p-2">
+        @{
+            await Html.RenderPartialAsync("CountryFactsControl");
+        }
+    </div>
+    <div class="col-md-8 col-sm-12 p-3">
+        <svg width="960" height="600"></svg>
+    </div>
+</div>
+
+<script>
+    const svg = d3.select("svg")
+    const graticule = d3.geoGraticule()
+
+    $(document).ready(function () {
+        $('#countriesList').selectpicker();
+        $('#countriesList').change(function () {
+            renderCountry($(this).val());
+        });
+        renderCountry('@Model.CountryCodes.Keys.First()');
+    });
+</script>
