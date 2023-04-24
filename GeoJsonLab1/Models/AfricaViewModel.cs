@@ -36,7 +36,14 @@
                     { "CV", "Cape Verde" },
                     { "BI", "Burundi" },
                     { "MR", "Mauritania" },
-                    { "RW", "Rwanda" }
+                    { "RW", "Rwanda" },
+                    { "SC", "Seychelles" },
+                    { "SL", "Sierra Leone" },
+                    { "LS", "Lesotho" },
+                    { "GH", "Ghana" },
+                    { "LR", "Liberia" },
+                    { "BF", "Burkina Faso" },
+                    { "DJ", "Djibouti" }
                 };
             }
         }

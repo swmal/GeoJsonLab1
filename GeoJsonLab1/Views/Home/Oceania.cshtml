@@ -1,21 +1,22 @@
-﻿@model GeoJsonLab1.Models.NorthAmericaVIewModel
+﻿@model GeoJsonLab1.Models.OceaniaViewModel
 @{
-    ViewData["Title"] = "North American countries";
+    ViewData["Title"] = "Oceanian countries";
 }
 <script src="https://d3js.org/d3.v4.min.js"></script>
-<div class="text-center">
-    <h1 class="display-4">GeoJson/d3</h1>
-    <h4>Countries in North America</h4>
+<div class="text-center top-margin">
+    <h4>Countries in Oceania</h4>
 </div>
 <div class="row">
     <div class="col mb-2">
-        <label for="countriesList">Select a country</label>
-        <select class="selectpicker" data-live-search="true" id="countriesList">
-            @foreach (var cc in Model.CountryCodes.Keys)
-            {
-                <option value="@cc">@Model.CountryCodes[cc]</option>
-            }
-        </select>
+        <div class="form-group">
+            <label for="countriesList">Select a country</label>
+            <select class="selectpicker" data-live-search="true" id="countriesList">
+                @foreach (var cc in Model.CountryCodes.Keys)
+                {
+                    <option value="@cc">@Model.CountryCodes[cc]</option>
+                }
+            </select>
+        </div>
     </div>
 </div>
 <div class="row">
@@ -25,7 +26,7 @@
         }
     </div>
     <div class="col-md-8 col-sm-12 p-3">
-    <svg width="960" height="600"></svg>
+        <svg width="960" height="600"></svg>
     </div>
 </div>
 

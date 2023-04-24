@@ -68,6 +68,12 @@ namespace GeoJsonLab1.Controllers
             return View(model);
         }
 
+        public IActionResult Oceania()
+        {
+            var model = new OceaniaViewModel();
+            return View(model);
+        }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

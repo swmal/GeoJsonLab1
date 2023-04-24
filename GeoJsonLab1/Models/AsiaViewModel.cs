@@ -45,7 +45,10 @@
                     { "BN", "Brunei" },
                     { "TM", "Turkmenistan" },
                     { "OM", "Oman" },
-                    { "MV", "Maldives" }
+                    { "MV", "Maldives" },
+                    { "LK", "Sri Lanka" },
+                    { "BT", "Bhutan" },
+                    { "BH", "Bahrain" }
                 };
             }
         }
