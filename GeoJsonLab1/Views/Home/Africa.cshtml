@@ -1,6 +1,6 @@
 ﻿@model GeoJsonLab1.Models.AfricaViewModel
 @{
-    ViewData["Title"] = "European countries";
+    ViewData["Title"] = "African countries";
 }
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <div class="text-center top-margin">
@@ -18,13 +18,14 @@
     </div>
 </div>
 <div class="row">
+    <div class="col-md-8 col-sm-12 p-3">
+        <svg viewBox="0 0 960 600"
+             preserveAspectRatio="xMidYMid meet"></svg>
+    </div>
     <div class="col-md-4 col-sm-12 bg-light border border-dark rounded shadow p-2">
         @{
             await Html.RenderPartialAsync("CountryFactsControl");
         }
-    </div>
-    <div class="col-md-8 col-sm-12 p-3">
-        <svg width="960" height="600"></svg>
     </div>
 </div>
 

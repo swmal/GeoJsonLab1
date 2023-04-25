@@ -34,7 +34,6 @@
                     { "LV", "Latvia" },
                     { "LT", "Lithuania" },
                     { "MC", "Monaco" },
-                    { "AD", "Andorra" },
                     { "SK", "Slovakia" },
                     { "MD", "Moldova" },
                     { "UA", "Ukraine" },
