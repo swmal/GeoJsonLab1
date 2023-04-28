@@ -68,6 +68,11 @@ namespace GeoJsonLab1.Controllers
             return View(model);
         }
 
+        public IActionResult Sweden()
+        {
+            return View();
+        }
+
         public IActionResult Oceania()
         {
             var model = new OceaniaViewModel();

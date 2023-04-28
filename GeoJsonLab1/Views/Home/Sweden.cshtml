@@ -1,0 +1,85 @@
+﻿@model GeoJsonLab1.Models.EuropeViewModel
+@{
+    ViewData["Title"] = "Sweden";
+}
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://d3js.org/topojson.v3.min.js"></script>
+<div class="text-center top-margin">
+    <h4>Sweden</h4>
+</div>
+<div class="row">
+    <div class="col-md-8 col-sm-12 p-3">
+        <svg viewBox="0 0 960 600"
+             preserveAspectRatio="xMidYMid meet"></svg>
+    </div>
+</div>
+
+<script>
+    const svg = d3.select("svg")
+    const graticule = d3.geoGraticule()
+
+    $(document).ready(function () {
+        renderSweden();
+    });
+
+    function drawSweden(err, country) {
+        // Create a unit projection.
+        let projection3 = d3.geoMercator()
+            .scale(1)
+            .translate([0, 0]);
+
+        // Create a path generator.
+        let path = d3.geoPath()
+            .projection(projection3);
+
+        let width = 940;
+        let height = 580;
+        // Compute the bounds of a feature of interest, then derive scale & translate.
+        let b = path.bounds(country),
+            s = .95 / Math.max((b[1][0] - b[0][0]) / width, (b[1][1] - b[0][1]) / height),
+            t = [(width - s * (b[1][0] + b[0][0])) / 2, (height - s * (b[1][1] + b[0][1])) / 2];
+
+        // Update the projection to use computed scale & translate.
+        projection3
+            .scale(s)
+            .translate(t);
+
+        svg.selectAll("*").remove();
+
+        svg.append("path")
+            .datum(graticule)
+            .attr("class", "graticule")
+            .attr("d", path);
+
+        svg.append("path")
+            .datum(graticule.outline)
+            .attr("class", "foreground")
+            .attr("d", path);
+        svg.append("g")
+            .selectAll("path")
+            .data([country])
+            .enter().append("path")
+            .attr("d", path);
+
+        d3.json("/topojson/sweden-municipalities.json", function (error, us) { // passes an error and object variable
+
+            svg.selectAll("path")
+                .data(topojson.feature(us, us.objects.SWE_adm2).features) // us.objects.state_pol cooresponds to the original file name, state_pol.shp
+                .enter().append("path")
+                .attr("d", path)
+                .attr("class", "kommun")
+
+            svg.selectAll(".kommun-label")
+                .data(topojson.feature(us, us.objects.SWE_adm2).features)
+          .enter().append("text")
+            .attr("class", "kommun-label")
+            .attr("transform", function(d) { return "translate(" + projection3(d.geometry.coordinates) + ")"; })
+            .attr("dy", ".35em")
+            .text(function(d) { return d.properties.name; });
+                });
+    }
+
+function renderSweden() {
+    d3.json("/GeoJson/SE.json", drawSweden);
+}
+</script>

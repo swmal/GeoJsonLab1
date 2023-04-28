@@ -41,6 +41,8 @@ function drawCountry(err, country) {
         .attr("d", path);
 
     if (country.capital !== undefined) {
+        capitalLat = country.capital.lat;
+        capitalLon = country.capital.lon;
         svg.selectAll(".pin")
             .data([country.capital])
             .enter().append("circle", ".pin")
@@ -50,7 +52,43 @@ function drawCountry(err, country) {
                     d.lon,
                     d.lat
                 ]) + ")";
+            })
+        .on("mouseenter", function () {
+            d3.select(this)
+                .attr("fill", "red");
+        })
+        .on("mouseout", function () {
+            d3.select(this)
+                .attr("fill", "black");
+        })
+        .on("click", function (d) {
+            var cityMapModal = new bootstrap.Modal(document.getElementById('capital-map'), {
+                keyboard: true
+            })
+            $("#mapdiv").html("");
+            cityMapModal.show();
+            var yourVectorSource = new ol.source.Vector({
+                projection: 'EPSG:3857',
+                url: '/geojson/AD.json',
+                format: new ol.format.GeoJSON()
             });
+            var osmLayer = new ol.layer.Tile({
+                source: new ol.source.OSM()
+            }); 
+            var map = new ol.Map(
+                {
+                    layers: [osmLayer],
+                    target: 'mapdiv',
+                    view: new ol.View(
+                        {
+                            center: [d.lon, d.lat],
+                            zoom: 10
+                        })
+                }); 
+            map.getView().setCenter(ol.proj.transform([d.lon, d.lat], 'EPSG:4326', 'EPSG:3857'));
+            map.refresh();
+            
+        });
         let g = svg.select("g");
         g.selectAll("text")
             .data([country.capital])
@@ -115,6 +153,8 @@ function renderGdpChart(gdpData) {
 
 var gdpChartLoaded = false;
 var gdpPerCapitaChart;
+var capitalLat;
+var capitalLon;
 
 $(document).ready(function () {
     $.ajaxSetup({ cache: false });
