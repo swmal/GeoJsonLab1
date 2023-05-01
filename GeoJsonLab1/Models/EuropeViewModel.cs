@@ -9,6 +9,7 @@
                 return new SortedDictionary<string, string> {
                     { "FR", "France" },
                     { "ES", "Spain" },
+                    { "AD", "Andorra" },
                     { "BE", "Belgium" },
                     { "NL", "Netherlands" },
                     { "DE", "Germany" },

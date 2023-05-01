@@ -82,7 +82,7 @@ function drawCountry(err, country) {
                     view: new ol.View(
                         {
                             center: [d.lon, d.lat],
-                            zoom: 10
+                            zoom: getZoom(d.zoom)
                         })
                 }); 
             map.getView().setCenter(ol.proj.transform([d.lon, d.lat], 'EPSG:4326', 'EPSG:3857'));
@@ -149,6 +149,12 @@ function renderGdpChart(gdpData) {
     });
     window.gdpPerCapitaChart.update();
     
+}
+
+function getZoom(z) {
+    if (z == 'XL') return 14;
+    if (z == 'L') return 12;
+    return 10;
 }
 
 var gdpChartLoaded = false;
