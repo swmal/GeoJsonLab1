@@ -13,7 +13,8 @@
                     { "NI", "Nicaragua" },
                     { "HN", "Honduras" },
                     { "GT", "Guatemala" },
-                    { "PA", "Panama" }
+                    { "PA", "Panama" },
+                    { "CR", "Costa Rica" }
                 };
             }
         }

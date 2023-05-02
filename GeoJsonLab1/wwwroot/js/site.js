@@ -107,12 +107,12 @@ function drawCountry(err, country) {
     }
 }
 
-function renderCountry(cc) {
-    d3.json("/GeoJson/" + cc + ".json", drawCountry);
-    if (cc !== undefined) {
-        $("#country-flag-img").attr("src", "/img/flags/" + cc.toLowerCase() + ".svg");
+function renderCountry(cc3, cc2) {
+    d3.json("/GeoJson/" + cc3 + ".json", drawCountry);
+    if (cc2 !== undefined) {
+        $("#country-flag-img").attr("src", "/img/flags/" + cc2.toLowerCase() + ".svg");
     }
-    $.getJSON("/miscdata/" + cc + ".json", function (data) {
+    $.getJSON("/miscdata/" + cc3 + ".json", function (data) {
         $("#country-name").html(data.name);
         $("#country-population").html(data.population.toLocaleString('en-US'));
         $("#country-area").html(data.areaKm2.toFixed().toLocaleString('en-US') + " km2/" + data.areaSqm.toFixed().toLocaleString('en-US') + " sqm");

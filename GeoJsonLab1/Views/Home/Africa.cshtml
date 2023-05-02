@@ -9,14 +9,26 @@
     <h4>Countries in Africa</h4>
 </div>
 <div class="row">
-    <div class="col mb-2">
-        <label for="countriesList">Select a country</label>
-        <select class="selectpicker" data-live-search="true" id="countriesList">
-            @foreach (var cc in Model.CountryCodes.Keys)
-            {
-                <option value="@cc">@Model.CountryCodes[cc]</option>
-            }
+    <div class="col-sm-12 col-md-4">
+        <div class="form-group">
+            <label for="continentsList">Select a continent</label><br />
+            <select id="continentsList" class="form-control">
+            </select>
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-4">
+        <div class="form-group">
+            <label for="regionsList">Select a region</label><br />
+            <select id="regionsList" class="form-control">
+            </select>
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-4">
+        <div class="form-group">
+            <label for="regionsList">Select a country</label><br />
+            <select id="countriesList" class="form-control">
         </select>
+        </div>
     </div>
 </div>
 <div class="row">
@@ -41,7 +53,7 @@
             </div>
             <div class="modal-body">
                 <div id="mapdiv" style="height:450px;width:100%"></div>
-            </div>
+            </div>''
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             </div>
@@ -51,12 +63,69 @@
 <script>
     const svg = d3.select("svg");
     const graticule = d3.geoGraticule();
+    var geo = {};
 
     $(document).ready(function () {
-        $('#countriesList').selectpicker();
-        $('#countriesList').change(function () {
-            renderCountry($(this).val());
+        //$('#continentsList').selectpicker();
+        //$('#regionsList').selectpicker();
+        //$('#countriesList').selectpicker();
+        var continentsSelect = $('#continentsList');
+        var regionsSelect = $('#regionsList');
+        var countriesSelect = $('#countriesList');
+        $.getJSON("/miscdata/geo-hierarchy.json", function (data){
+            geo = data;
+            continentsSelect.html('');
+            for(let continentIx = 0; continentIx < geo.continents.length;continentIx++){
+                let continent = geo.continents[continentIx];
+                continentsSelect.append('<option value="' + continentIx + '">' + continent.name + '</option>');
+            }
+            //continentsSelect.selectpicker('refresh');
+            loadRegions(0);
+            loadCountries(0, 0);
+            let cc3 = geo.continents[0].regions[0].countries[0].code3;
+            let cc2 = geo.continents[0].regions[0].countries[0].code2;
+            renderCountry(cc3, cc2);
         });
-        renderCountry('@Model.CountryCodes.Keys.First()');
+        
+        
+        $('#countriesList').change(function () {
+            let ctIx = $("#continentsList option:selected").index();
+            let rIx = $("#regionsList option:selected").index();
+            let ctryIx = $("#countriesList option:selected").index()
+            let country = geo.continents[ctIx].regions[rIx].countries[ctryIx];
+            renderCountry(country.code3, country.code2);;
+        });
+        $('#continentsList').change(function () {
+            loadRegions(parseInt($(this).val()));
+            loadCountries(parseInt($(this).val(), 0));
+        });
+         $('#regionsList').change(function () {
+            loadCountries($("#continentsList option:selected").index(), parseInt($("#regionsList option:selected").val()));
+        });
+        
     });
+
+    function loadRegions(continentIx){
+        var continent = geo.continents[continentIx];
+        var regionsSelect = $('#regionsList');
+        regionsSelect.html('');
+        for(let regionIx = 0; regionIx < continent.regions.length;regionIx++){
+            let region = continent.regions[regionIx];
+            regionsSelect.append('<option value="' + regionIx + '">' + region.name + '</option>');
+        }
+        //regionsSelect.selectpicker('refresh');
+    }
+
+    function loadCountries(continentIx, regionIx){
+        if(regionIx === undefined) regionIx=0;
+        var continent = geo.continents[continentIx];
+        var region = continent.regions[regionIx];
+        var countriesSelect = $('#countriesList');
+        countriesSelect.html('');
+        for (let countryIx = 0; countryIx < region.countries.length; countryIx++) {
+            let country = region.countries[countryIx];
+            countriesSelect.append('<option value="' + country.code + '">' + country.name + '</option>');
+        }
+        //countriesSelect.selectpicker('refresh');
+    }
 </script>

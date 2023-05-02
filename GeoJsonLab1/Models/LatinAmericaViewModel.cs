@@ -16,7 +16,8 @@
                     { "CL", "Chile" },
                     { "BO", "Bolivia" },
                     { "UY", "Uruguay" },
-                    { "PY", "Paraguay" }
+                    { "PY", "Paraguay" },
+                    { "GY", "Guyana" }
                 };
             }
         }
