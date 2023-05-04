@@ -32,9 +32,24 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-md-8 col-sm-12 p-3">
+    <div class="col mt-2">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#" id="country-map-link"><span class="country-name"></span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" id="city-map-link">City map <span class="capital-name"></span></a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-8 col-sm-12 p-3" id="country-map-col">
         <svg viewBox="0 0 960 600"
              preserveAspectRatio="xMidYMid meet"></svg>
+    </div>
+    <div class="col-md-8 col-sm-12 p-3" style="display:none" id="city-map-col">
+        <div id="city-map-div" style="height:450px;width:100%"></div>
     </div>
     <div class="col-md-4 col-sm-12 bg-light border border-dark rounded shadow p-2">
         @{
@@ -66,9 +81,6 @@
     var geo = {};
 
     $(document).ready(function () {
-        //$('#continentsList').selectpicker();
-        //$('#regionsList').selectpicker();
-        //$('#countriesList').selectpicker();
         var continentsSelect = $('#continentsList');
         var regionsSelect = $('#regionsList');
         var countriesSelect = $('#countriesList');
@@ -79,7 +91,6 @@
                 let continent = geo.continents[continentIx];
                 continentsSelect.append('<option value="' + continentIx + '">' + continent.name + '</option>');
             }
-            //continentsSelect.selectpicker('refresh');
             loadRegions(0);
             loadCountries(0, 0);
             let cc3 = geo.continents[0].regions[0].countries[0].code3;
@@ -93,14 +104,21 @@
             let rIx = $("#regionsList option:selected").index();
             let ctryIx = $("#countriesList option:selected").index()
             let country = geo.continents[ctIx].regions[rIx].countries[ctryIx];
-            renderCountry(country.code3, country.code2);;
+            renderCountry(country.code3, country.code2);
         });
         $('#continentsList').change(function () {
             loadRegions(parseInt($(this).val()));
             loadCountries(parseInt($(this).val(), 0));
+            let ctIx = $("#continentsList option:selected").index();
+            let country = geo.continents[ctIx].regions[0].countries[0];
+            renderCountry(country.code3, country.code2);;
         });
          $('#regionsList').change(function () {
             loadCountries($("#continentsList option:selected").index(), parseInt($("#regionsList option:selected").val()));
+            let ctIx = $("#continentsList option:selected").index();
+            let rIx = $("#regionsList option:selected").index();
+            let country = geo.continents[ctIx].regions[rIx].countries[0];
+            renderCountry(country.code3, country.code2);
         });
         
     });
@@ -113,7 +131,6 @@
             let region = continent.regions[regionIx];
             regionsSelect.append('<option value="' + regionIx + '">' + region.name + '</option>');
         }
-        //regionsSelect.selectpicker('refresh');
     }
 
     function loadCountries(continentIx, regionIx){
@@ -126,6 +143,5 @@
             let country = region.countries[countryIx];
             countriesSelect.append('<option value="' + country.code + '">' + country.name + '</option>');
         }
-        //countriesSelect.selectpicker('refresh');
     }
 </script>

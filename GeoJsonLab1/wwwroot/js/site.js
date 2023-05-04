@@ -41,12 +41,14 @@ function drawCountry(err, country) {
         .attr("d", path);
 
     if (country.capital !== undefined) {
-        capitalLat = country.capital.lat;
-        capitalLon = country.capital.lon;
+        $(".capital-name").html(country.capital.name);
+        //capitalLat = country.capital.lat;
+        //capitalLon = country.capital.lon;
+        $("#city-map-link").data("capital", country.capital)
         svg.selectAll(".pin")
             .data([country.capital])
             .enter().append("circle", ".pin")
-            .attr("r", 5)
+            .attr("r", 6)
             .attr("transform", function (d) {
                 return "translate(" + projection3([
                     d.lon,
@@ -67,26 +69,7 @@ function drawCountry(err, country) {
             })
             $("#mapdiv").html("");
             cityMapModal.show();
-            var yourVectorSource = new ol.source.Vector({
-                projection: 'EPSG:3857',
-                url: '/geojson/AD.json',
-                format: new ol.format.GeoJSON()
-            });
-            var osmLayer = new ol.layer.Tile({
-                source: new ol.source.OSM()
-            }); 
-            var map = new ol.Map(
-                {
-                    layers: [osmLayer],
-                    target: 'mapdiv',
-                    view: new ol.View(
-                        {
-                            center: [d.lon, d.lat],
-                            zoom: getZoom(d.zoom)
-                        })
-                }); 
-            map.getView().setCenter(ol.proj.transform([d.lon, d.lat], 'EPSG:4326', 'EPSG:3857'));
-            map.refresh();
+            showCityMap('mapdiv', d);
             
         });
         let g = svg.select("g");
@@ -107,12 +90,38 @@ function drawCountry(err, country) {
     }
 }
 
+function showCityMap(tgt, d) {
+    //var yourVectorSource = new ol.source.Vector({
+    //    projection: 'EPSG:3857',
+    //    url: '/geojson/AD.json',
+    //    format: new ol.format.GeoJSON()
+    //});
+    var osmLayer = new ol.layer.Tile({
+        source: new ol.source.OSM()
+    });
+    var map = new ol.Map(
+        {
+            layers: [osmLayer],
+            target: tgt,
+            view: new ol.View(
+                {
+                    center: [d.lon, d.lat],
+                    zoom: getZoom(d.zoom)
+                })
+        });
+    map.getView().setCenter(ol.proj.transform([d.lon, d.lat], 'EPSG:4326', 'EPSG:3857'));
+    //map.refresh();
+}
+
 function renderCountry(cc3, cc2) {
+    $("#city-map-col").hide().removeClass("active");
+    $("#country-map-col").addClass("active").show();
     d3.json("/GeoJson/" + cc3 + ".json", drawCountry);
     if (cc2 !== undefined) {
         $("#country-flag-img").attr("src", "/img/flags/" + cc2.toLowerCase() + ".svg");
     }
     $.getJSON("/miscdata/" + cc3 + ".json", function (data) {
+        $(".country-name").html(data.name);
         $("#country-name").html(data.name);
         $("#country-population").html(data.population.toLocaleString('en-US'));
         $("#country-area").html(data.areaKm2.toFixed().toLocaleString('en-US') + " km2/" + data.areaSqm.toFixed().toLocaleString('en-US') + " sqm");
@@ -164,4 +173,21 @@ var capitalLon;
 
 $(document).ready(function () {
     $.ajaxSetup({ cache: false });
+    $("#city-map-link").click(function (e) {
+        e.preventDefault();
+        $(".nav-link").removeClass("active");
+        $(this).addClass("active");
+        let capital = $(this).data("capital");
+        $("#city-map-div").html("");
+        showCityMap("city-map-div", capital);
+        $("#country-map-col").hide();
+        $("#city-map-col").fadeIn();
+    });
+    $("#country-map-link").click(function (e) {
+        e.preventDefault();
+        $(".nav-link").removeClass("active");
+        $(this).addClass("active");
+        $("#city-map-col").hide();
+        $("#country-map-col").fadeIn();
+    });
 });
